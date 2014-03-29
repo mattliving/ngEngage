@@ -1,0 +1,30 @@
+{
+  "author": "A Programmer",
+  "name": "My Project",
+  "description": "Very Descriptive",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nss/angular-brunch-seed-javascript"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/brunch watch --server",
+    "test": "testacular start test/testacular.conf.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "brunch": "latest",
+    "javascript-brunch": "latest",
+
+    "css-brunch": "latest",
+    "clean-css-brunch": "latest",
+    "less-brunch": "latest",
+
+    "ngmin-uglify-js-brunch": "latest",
+    "auto-reload-brunch": "latest",
+    "protractor": "latest"
+  }
+}
