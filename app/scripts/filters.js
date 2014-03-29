@@ -1,10 +1,7 @@
-'use strict';
+var filters = angular.module('engageAppFilters', []);
 
-/* Filters */
-
-angular.module('myApp.filters', []).
-  filter('interpolate', ['version', function(version) {
+filters.filter('interpolate', ['version', function(version) {
     return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
+        return String(text).replace(/\%VERSION\%/mg, version);
     }
-  }]);
+}]);

@@ -1,5 +1,3 @@
-'use strict';
+var services = angular.module('engageAppDirectives', []);
 
-/* Services */
-
-angular.module('myApp.services', []).value('version', '0.1');
+services.value('version', '0.0.1');

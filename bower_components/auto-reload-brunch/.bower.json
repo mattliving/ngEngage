@@ -2,7 +2,7 @@
   "name": "auto-reload-brunch",
   "homepage": "https://github.com/brunch/auto-reload-brunch",
   "version": "1.7.3",
-  "main": "",
+  "main": "vendor/auto-reload.js",
   "_release": "1.7.3",
   "_resolution": {
     "type": "version",

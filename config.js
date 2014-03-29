@@ -12,12 +12,13 @@ exports.config = {
   files: {
     javascripts: {
       joinTo: {
-        'js/app.js': /^app\/scripts/,
-        'js/vendor.js': /^bower_components/
+        'js/vendor.js': /^bower_components/,
+        'js/app.js': /^app\/scripts/
       },
       order: {
         before: [
-          'bower_components/lodash/lodash.js'
+          'bower_components/lodash/lodash.js',
+          'bower_components/angular/angular.js'
          ]
       }
     },
@@ -33,5 +34,6 @@ exports.config = {
         ]
       }
     }
-  }
+  },
+  plugins: {}
 };
