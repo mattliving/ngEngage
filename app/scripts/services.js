@@ -1,3 +1,3 @@
-var services = angular.module('engageAppDirectives', []);
+var services = angular.module('engageAppServices', []);
 
 services.value('version', '0.0.1');
