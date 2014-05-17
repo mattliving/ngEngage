@@ -5,7 +5,9 @@
     "angular": "latest",
     "angular-resource": "latest",
     "angular-route": "*",
+    "angular-elastic": "latest",
     "lodash": "latest",
+    "jquery": "latest",
     "auto-reload-brunch": "latest",
     "momentjs": "latest"
   },

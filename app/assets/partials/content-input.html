@@ -1,0 +1,15 @@
+<ul class="list-inline">
+  <li>POST TYPE</li>
+  <li class="divider"></li>
+  <li data-icon class='icon-image'> Image</li>
+  <li data-icon class='icon-link'> Link</li>
+  <li data-icon class='icon-layout'> Content</li>
+  <li data-icon class='icon-assets'> Status Update</li>
+</ul>
+<h6 class="pull-left">POST</h6>
+<textarea msd-elastic autofocus ng-model='content.title'>{{content.title}}</textarea>
+<img ng-click='editingImageUrl = !editingImageUrl' ng-src="{{content.imageUrl}}" height='35%' width='35%' alt=""></img>
+<div ng-show='editingImageUrl'>
+  <h6>SET IMAGE URL</h6>
+  <textarea msd-elastic ng-model='content.imageUrl'>{{content.imageUrl}}</textarea>
+</div>

@@ -20,19 +20,23 @@ directives.directive('contentInput', function() {
         restrict: 'EA',
         templateUrl: '/partials/content-input.html',
         scope: {
-            content: '='
+            post: '='
+        },
+        link: function(scope, elem, attrs) {
+            scope.editingImageUrl = false;
+        }
+    }
+});
+
+directives.directive('destinations', function() {
+    return {
+        restrict: 'EA',
+        templateUrl: '/partials/destinations.html',
+        scope: {
+            item: '='
         },
         link: function(scope, elem, attrs) {
 
-            scope.editingImageUrl = false;
-
-            var $types = $(elem).find("li[data-icon]");
-            $types.click(function(e) {
-                var $this = $(this);
-                $types.not($this).removeClass("active");
-                $this.toggleClass("active");
-                scope.content.type = $this.text().trim().toLowerCase();
-            });
         }
     }
 });
@@ -46,7 +50,6 @@ directives.directive('stage', function($window, postConfig) {
             heading: '@',
             display: '@',
             items: '=',
-            post: '=',
             nextFunc: '&next',
             closeFunc: '&close'
         },

@@ -1,0 +1,70 @@
+<div class='container-fluid'>
+
+  <div class='row'>
+    <a ng-click="closeFunc()" data-icon class="icon-close pull-right"></a>
+  </div>
+  <div class='row'>
+    <div class='col-md-2'></div>
+    <div class='col-md-8'>
+      <h1 class='heading text-center'>{{heading}}</h1>
+    </div>
+    <div class='col-md-2'></div>
+  </div>
+
+  <div ng-switch on="display">
+    <div ng-switch-when="circles">
+      <div class='row'>
+        <div class="col-md-{{(12-items.length*2)/2}}"></div>
+        <div class="col-md-{{items.length*2}} text-center">
+          <a ng-click='nextFunc({item: item.content})' class='circle' ng-style='{background: item.style.background}' ng-repeat='item in items'>
+            <div data-icon class='icon-{{item.style.icon}}'></div>
+            <p>{{item.style.text}}</p>
+            <small ng-if='item.style.subtext'>{{item.style.subtext}}</small>
+          </a>
+        </div>
+        <div class="col-md-{{(12-items.length*2)/2}}"></div>
+      </div>
+    </div>
+
+    <div ng-switch-when="rectangles">
+      <div class='row' ng-repeat='item in items'>
+        <div class="col-md-3"></div>
+        <div ng-click='toggleSelected(item); nextFunc({item: item})' class="col-md-6 rectangle">
+          <div ng-show='item.selected' class='selected'>
+            <h1 data-icon class='icon-approve'></h1>
+          </div>
+          <a class="pull-left" href='#'>
+            <img height='84px' width='84px' ng-src='{{item.icon}}'>
+          </a>
+          <div class="row background" ng-style="{background: '#B9B9B9'}">
+          </div>
+          <div class="row text">
+            <div class="col-md-3">
+              <h3 class="media-heading">{{item.title}}</h3>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-6 pull-right">
+              <small class='pull-right'>{{item.likes}} Likes  |  {{item.url}}</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+
+    <div ng-switch-when="squares"></div>
+    <div ng-switch-when="content">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-center">
+          <content-input content='post.content'></content-input>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-transclude></div>
+
+  <div fill-height class='row'></div>
+</div>

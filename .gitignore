@@ -4,6 +4,7 @@ dist
 
 _public
 app/bower_components
+bower_components
 node_modules
 npm-debug.log
 

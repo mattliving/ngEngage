@@ -1,0 +1,2089 @@
+// Import default variables - Colours
+@import "variables.less";
+
+// @font-face {
+// 	font-family: 'EngVetica';
+// 	src: url('fonts/engvetica/engvetica.eot');
+// 	src: url('fonts/engvetica/engvetica.eot?#iefix') format('embedded-opentype'),
+// 	url('fonts/engvetica/engvetica.woff') format('woff'),
+// 	url('fonts/engvetica/engvetica.ttf') format('truetype'),
+// 	url('fonts/engvetica/engvetica.svg#EngVetica') format('svg');
+// 	font-weight: normal;
+// 	font-style: normal;
+// }
+
+// IMPORTANT IMPORTANT IMPORTANT IMPORTANT
+// For your theme, add your own Mixins and overide your variables HERE - i.e. before the declarations
+
+
+@pageBGColor:rgba(241,241,241,.9);
+@panelBGColor:rgba(255,255,255,.97);
+
+@linkColor:#111;
+@textColor:#666;
+
+@headingsColor:rgb(102,102,102);
+@subheadsColor:rgb(128,128,128);
+@overlayBG:rgba(71,71,71,.94);
+@reportOverlayBG:rgb(248,248,248);
+
+@conflictColor:rgb(222,99,59);
+@whatsNextColor:rgb(19,212,229);
+
+// Greys
+// ----------
+
+@grayLightest:rgb(217,217,217);
+@grayLighter:rgb(180,180,180);
+@grayLight:rgb(166,166,166);
+@grayByline:rgb(156,156,156);
+@grayLightMid:rgb(128,128,128);
+@grayMid:rgb(102,102,102);
+@grayDark:rgb(64,64,64);
+@grayDarker:rgb(49,49,49);
+
+@grayLightMidOp:rgba(139, 139, 138, 0.85);
+
+// *************** CSS *************** //
+
+body {
+	background:@pageBGColor;
+	color:@textColor;
+	font:normal @baseFontSize @baseFontFamily;
+}
+
+h1, h2, h3 {
+	font-family:@headingsFontFamily;
+	color:@headingsColor;
+}
+
+a:link,a:visited {
+	color:@linkColor;
+}
+
+a:hover, a:active, a.current {
+	color:@linkColorHover;
+}
+
+::selection {
+	background-color:@linkColorHover;
+}
+
+// somehow missing from our bootstrap.css
+.text-left{
+	text-align: left;
+}
+.text-center, .pull-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+
+
+
+// Buttons
+// --------------
+
+.btn {
+	background:transparent;
+	border:none;
+}
+
+.connectButton a:link,
+.connectButton a:visited {
+	color:@white;
+}
+
+.component-campaignobject-next-action .btn.btn-xxlarge:hover {
+	background:transparent;
+	color:@grayLight;
+}
+
+
+// Main Section containers
+// ----------------------------------------------
+
+.sectionInner {
+	background-color:@panelBGColor;
+
+    #flashUploader, &.radial-background {
+        background-color: rgb(85, 85, 85);
+        background-image: radial-gradient(circle farthest-corner at 200px 200px , rgb(130, 130, 130), rgb(51, 51, 51));
+    }
+
+	.component:last-of-type {
+		border-radius: 0 0 4px 4px;
+	}
+}
+
+// Complex Editors
+// ------------------------------
+.x-border-box .panel-app-complex,
+.mainAssetUploader .sectionInner{
+	background:@grayMid;
+
+	.x-reset label.x-form-item-label {
+		color:@grayLightest;
+	}
+}
+
+// Overlays
+// --------
+
+.hint-shown .nav-global a:link,
+.hint-shown .nav-global a:visited {
+	color: #a6a6a6;
+	&:hover {
+		color: @ngxBlue;
+	}
+}
+
+
+.overlayMask, .hintOverlayMask {
+	// #gradient .radial(rgba(100,100,100,0.75),rgba(50,50,50,0.99), center center, center center, circle, rgba(90,90,90,.8) );
+}
+
+.overlayMask {
+
+	&.overlay-reporting {
+		background:@reportOverlayBG;
+
+		.close {
+			color:@grayMid;
+		}
+
+	}
+
+	a:link, a:visited {
+		color:@white;
+	}
+
+	&.fb-reply-overlay {
+		p, h1 {
+			color:@white;
+		}
+
+		.ngx-clear-button {
+			a:link, a:visited {
+				color:@grayLighter;
+			}
+			a:hover {
+				color:@white;
+			}
+		}
+	}
+
+	.component-creator {
+		min-width : 770px;
+		.media-body {
+			overflow: hidden;
+			zoom: 1;
+		}
+
+		a:link, a:visited {
+			color:@grayLight;
+		}
+
+		a:link i, a:visited i,
+		a:link strong, a:visited strong {
+			color:@white;
+		}
+	}
+}
+
+.overlayMask.hasScrolled{
+	.headerWrapper header {
+		background-color:darken(#fff,6%)!important;
+		border-bottom:none;
+
+		a:link, a:visited {
+			color:@grayMid;
+		}
+
+	}
+}
+
+.overlayMask.hasScrolled, .hasScrolled .overlayMask {
+	.close {
+		color:@grayMid;
+	}
+}
+
+.content-terms {
+	p, h1, h2, h3, li {
+		color:@white;
+	}
+
+	ul {
+		margin-left:20px;
+	}
+}
+
+.background-clear {
+	background:transparent;
+}
+
+// Footer
+// ------------
+
+.contentWrapper>footer {
+	padding-bottom:40px;
+}
+
+// Action Panel
+
+.panel.action,
+.panel.action a:link, .panel.action a:visited,
+.panel.action a:hover {
+	color:@grayDark;
+}
+
+summary,
+.actionPanel a:link,
+.actionPanel a:visited{
+	color:@grayLightMid;
+}
+
+// Navigation Styles
+// ----------------------------------
+
+nav[class*="nav-"]{
+	font-size:@navbarFontSize;
+	font-family:@baseFontFamily;
+}
+
+nav.nav-icons a:link,
+nav.nav-icons a:visited {
+	font-family:@iconFontFamily;
+	font-size:@iconFontSize;
+	text-decoration:none;
+}
+
+nav.nav-icons.nav-utility a:link,
+nav.nav-icons.nav-utility a:visited {
+	color:@grayLighter;
+}
+
+nav.nav-icons.nav-utility a.current,
+nav.nav-icons.nav-utility a:hover,
+nav.nav-icons.nav-utility a.current:link,
+nav.nav-icons.nav-utility a.current:visited {
+	color:@linkColorHover;
+}
+
+.nav-global li > a {
+	padding-top:5px;
+	text-shadow:none;
+	&:hover {
+		color: @ngxBlue;
+	}
+
+}
+
+.nav-global li > a.current:link,
+.nav-global li > a.current:visited{
+	border-top:2px solid @linkColorHover;
+	color:@linkColorHover;
+}
+
+.nav-list > li > a {
+	border-left:1px transparent solid;
+}
+
+.nav-list > li > a.current {
+	border-color:@linkColorHover;
+	color: @linkColorHover;
+}
+
+.nav > li > a:hover,
+.nav-list > li > a {
+	background:transparent;
+	text-shadow:none;
+}
+.nav > li > a:hover, .actionPanel li a:hover {
+	background:transparent;
+	text-shadow:none;
+	color: @ngxBlue;
+}
+
+.nav-list {
+	margin-bottom:10px;
+}
+
+.nav-list-secondary {
+	margin-bottom:30px;
+	border-top:1px solid @grayLight;
+}
+
+.nav-utility {
+	margin:11px 0;
+	padding:0;
+}
+
+// Drop Nav
+// ----------------
+
+.dropdown-menu {
+	background-color:@grayLight;
+
+	li .action-icon::before {
+		color:@white;
+	}
+
+	&::after {
+		border-bottom-color:@grayLight;
+	}
+}
+
+.dropdown {
+	li, a {
+		margin-right:0;
+		display:block;
+		color:@white;
+		&[data-icon]:before {
+			font-size: 24px;
+			line-height: normal;
+			vertical-align: middle;
+		}
+	}
+
+}
+
+.dropdown-menu li a:hover {
+	background-color:transparent;
+	background-image:none;
+}
+
+.dropdown.open>a:link,
+.dropdown.open>a:visited {
+	color:@linkColorHover;
+	outline:none;
+}
+
+.nav-list a,
+.nav-global a,
+.nav-accountid li a{
+
+	&:link,
+	&:visited {
+		color:@grayMid;
+	}
+}
+
+.nav-channel a {
+	&:link,
+	&:visited {
+		color:@grayLight;
+	}
+	&:hover {
+		color:@grayMid;
+	}
+}
+
+.hint-shown {
+	.nav-channel a, .nav-global a {
+		&:hover {
+			color:#fff;
+		}
+	}
+}
+
+.headerWrapper .avatar {
+	-webkit-filter: invert(50%)
+}
+
+.hasScrolled .pageWrapper .headerWrapper header {
+	background-color:darken(#fff,6%)!important;
+	border-bottom:none;
+}
+
+
+.nav-channel, .nav-utility {
+	border-right: 1px @grayLight solid;
+}
+
+// List Pages
+// --------------------
+
+.panel-list {
+
+	min-height:500px;
+
+	h1 {
+		font-size:@subtitleFontSize;
+		font-weight:normal;
+		margin:20px 0 20px;
+		color:@grayMid;
+	}
+
+	.toolbar {
+		padding-top:10px;
+	}
+
+	.object {
+
+		h1 { color:@white; }
+
+		color:@white;
+		background:@grayLighter;
+
+		.attr-meta {
+			color:@grayLightest;
+		}
+
+		[class*="span"],
+		[class*="col-md-"]{
+			border-color:@grayLighter;
+		}
+	}
+
+	.object-channel {
+		a:link, a:visited {
+			color:@white;
+		}
+
+		a:hover {
+			color:@ngxBlue;
+		}
+	}
+
+	.campaign-add {
+		display:inline-block;
+		margin-top:.5em;
+		font-family: Klavika;
+		.btn {
+			color:@grayMid;
+			padding:.4em .7em;
+		}
+	}
+
+	.campaign-add {
+		border-left:1px solid @grayLighter;
+
+		&.component-controls {
+			margin: 0;
+
+			.component-control-btn {
+				margin-right : 0;
+
+				&:hover {
+					background-color: darken(@ngxBlue, 20%);
+				}
+			}
+
+			&[data-icon]:before {
+				font-size : 16px;
+			}
+		}
+	}
+}
+
+
+.filters {
+	.filter-link.btn {
+		font-family: Klavika;
+		color:@grayMidLight;
+		text-transform: lowercase;
+		padding: 10px;
+		font-size: 16px;
+		min-width: 50px;
+
+		.overlay & {
+			color:@grayLightest;
+		}
+
+		&.active, &:hover  {
+			background-color:@ngxBlue;
+			color:@white;
+		}
+
+
+	}
+
+}
+
+
+.panel-list .row h1 {
+	margin:0;
+}
+
+.panel-list a:link,
+.panel-list a:visited {
+	text-decoration:none;
+	color:@white;
+}
+
+.row-striped div.row-fluid:nth-child(odd){
+	background:@grayLight;
+}
+
+// Old Wizards - Like Gandalf
+// --------------------------
+
+.wizard-tabs li.active {
+	color:@white;
+}
+
+
+// Details Pages
+// --------------------------
+
+.panel-app {
+}
+
+
+.panel-app .header-campaign,
+.panel-app .header-assets,
+.panel-app .header-gamification,
+.panel-app .header-channel,
+.panel-app .header-account,
+.layout-grid .panel-app header.gridPanelHeader,
+.panel-app .complexAppHeader{
+	background:gray;
+	padding: 11px 11px 11px 14px;
+	border-bottom:0;
+	h1 {
+		font-family:@labelsFontFamily;
+		display:inline-block;
+		vertical-align:middle;
+		color:@white;
+		text-transform:uppercase;
+		font-size:20px;
+		padding:0 6px 0 0;
+	}
+
+	h2 {
+		display:inline-block;
+		color:@grayLightest;
+		font-size: 16px;
+		padding: 0px 0 0px 10px;
+		border-left: 1px solid #fff;
+		font-weight: normal;
+		vertical-align:middle;
+		margin: 0;
+		line-height: 24px;
+	}
+
+	p {
+		color:@white;
+	}
+
+	.btn.btn-complex {
+		padding:0;
+	}
+}
+
+.message .btn {
+	background-color: @white;
+}
+
+.message .btn:hover {
+	background-color:#e6e6e6;
+}
+
+/*
+.panel-app .header-gamification {
+	h1 {
+		//padding-top:10px;
+	}
+
+}
+*/
+.panel-app .header-summary-campaign {
+	background:@grayDark url('img/header-pattern.png') center top no-repeat;
+	color:#fff;
+	border-bottom:0;
+	padding: 24px 28px 24px 35px;
+	h1 {
+		display:block;
+		text-transform:none;
+		margin-top:35px;
+		color:@white;
+		font-family:@labelsFontFamily;
+		font-size:22px;
+		font-weight:bold;
+	}
+
+	h2 {
+		display:block;
+		color:@white;
+		font-size:48px;
+		margin:0;
+		text-transform:none;
+		padding:0;
+		border-left:none;
+	}
+}
+
+.panel-app h1 {
+	margin:0;
+	font-size:@subtitleFontSize;
+	font-weight:normal;
+	text-transform: lowercase;
+}
+
+.panel-app .sectionInner h2 {
+	color:@white;
+	font-size: @sectionSubTitleFontSize;
+	font-weight:normal;
+	text-transform:lowercase;
+	margin:0;
+}
+
+.component-campaign-ataglance {
+	.attr-meta {
+		display:block;
+		padding: 5px 10px;
+	}
+	.meta-label {
+		font-size:12px;
+		display:inline-block;
+		width:70px;
+		vertical-align:top;
+	}
+	.meta-value {
+		display:inline-block;
+		vertical-align:top;
+		color:@grayLightMid;
+	}
+
+	.ataglance-intro,
+	.ataglance-publishing {
+		min-height:200px;
+		border-right:1px solid @grayLightest;
+
+		strong {
+			color:@grayMid;
+		}
+	}
+
+	.ataglance-publishing {
+		.meta-label {
+			margin-bottom:0;
+		}
+		.meta-value {
+			display:block;
+			.meta-time { font-size:0.8em; }
+		}
+	}
+
+	.ataglance-meta  .meta-value {
+		max-width:190px;
+	}
+
+
+}
+
+
+.panel-app .component.component-campaignobject-next-steps {
+	h1 {
+		color:@white;
+	}
+}
+
+
+
+// Overlay Contents
+// --------------------------------
+
+.overlay h1 {
+	font-size:@subtitleFontSize;
+	font-weight:normal;
+	margin:0; text-transform:lowercase;
+}
+
+.overlay {
+	.meta-label,
+	.meta-value {
+		color:@white;
+	}
+
+}
+
+// Overlay editors
+// ------------------------------
+
+.x-border-box .overlay {
+
+	.panel-app .sectionHeader {
+		background:@grayDark;
+	}
+
+
+
+	.panel-designer, .panel-insights .sectionInner {
+		background:@grayLightMid;
+
+		.btn-complex {
+			background:transparent;
+
+		}
+	}
+
+	.pageDesignerContent .sectionHeader {
+		padding:11px 14px;
+		h1 {
+			font-size:20px;
+			font-family:@labelsFontFamily;
+		}
+	}
+
+	.pageDesignerRow {
+		border-color: @grayLighter transparent;
+	}
+
+	.pageDesignerDroppableColumn.border-right {
+		border-color:@grayLighter;
+		border-width:0 1px 0 0;
+	}
+
+	.newModuleButton {
+		background:@grayDarker;
+	}
+
+	.page-info {
+		color:@grayLightest;
+		margin:0;
+	}
+
+}
+
+.complexActions i[data-icon]:before {
+	vertical-align:middle;
+}
+
+
+
+// Full Screen messages
+// ----------------------------------------
+
+.x-border-box .ngx-message-box .ngx-white-button,
+.x-border-box .ngx-message-box .ngx-white-button-text{
+	.x-btn-inner{
+		color:@white!important
+	}
+
+	.x-btn-icon,
+	.x-btn-icon[data-icon]:before {
+		color:@white!important;
+	}
+
+}
+
+// Complex App Panel
+// -----------------
+
+.panel-app-complex .ngx-form-heading-container {
+	.ngx-form-heading-headline {
+		color:@white;
+	}
+}
+
+
+
+
+
+// Dashboard Panels
+// --------------------------------
+
+#dashboard {
+	background:@pageBGColor url('./img/header-pattern-dashboard.png') center -20px no-repeat;
+	background-size:1170px 400px;
+	#contentWrapper {
+		padding:4px 0 0 0;
+	}
+
+}
+
+.panel.component-dashboard-whatsnew {
+	background:transparent;
+	border-bottom:0;
+	padding:70px 60px;
+
+	.span7 {
+		padding:36px 0;
+	}
+
+	.span5:first-child {
+		padding:30px 0;
+		border-right:1px @grayLighter solid;
+	}
+
+	h1 {
+		font-size:72px;
+	}
+
+	p {
+		max-width:400px;
+		margin:0 20px;
+		display:inline-block;
+		vertical-align:middle;
+		font-size:12px;
+		color:@grayMid;
+	}
+
+	.btn {
+		font-size:20px;
+		display:inline-block;
+		background:@white;
+		padding:10px;
+		vertical-align:middle;
+		color:@grayMid;
+	}
+}
+
+
+.component-dashboard-quickactions {
+	.row-fluid:first-child h1 {
+		margin:20px 0 0;
+	}
+}
+
+
+.panel-dashboard h1 {
+	font-size:@subtitleFontSize;
+	color:@white;
+	text-transform:lowercase;
+}
+
+.panel-dashboard h1::before {
+	display:none;
+}
+
+
+
+// Welcome Component
+// ----------------------------------
+
+.row-audience>div {
+	text-align:center;
+
+	h1 {
+		font-size:@titleFontSize;
+	}
+
+	p {
+		margin:.5em 0;
+		font-family:@labelsFontFamily;
+	}
+}
+
+.row-audience > div:first-child {
+	text-align:left;
+	padding-top:@smallPad;
+
+	h1 {
+		font-size:@subtitleFontSize;
+	}
+
+
+	> .span2:first-child {
+		background:@white;
+	}
+}
+
+.panel-dashboard .component.component-dashboard-activity {
+	border-bottom:0;
+}
+
+
+// Welcome
+// --------------
+
+.page-welcome div[class*="welcome"]{
+	width:1280px;
+	margin:auto;
+	min-height:400px;
+	text-align:center;
+}
+
+.page-welcome.layout-unauthed {
+	margin:0;
+	background: url('img/header-pattern.png') center top no-repeat;
+	background-size:100% 746px;
+
+	.pageWrapper {
+		padding-top:0;
+		background-color:rgba(255,255,255,.3);
+		margin-top:-7px;
+	}
+}
+
+.header-welcome {
+	height:746px;
+	position:relative;
+
+	h1 {
+		font-size:144px;
+		color:@white;
+		margin-top:120px;
+	}
+
+	.icon {
+		color:@white;
+		position:absolute;
+		bottom:10px;
+	}
+
+
+}
+
+.welcome-hello-interface {
+	padding:120px 0;
+	color:@grayLight;
+
+	.span7, .span5 {
+		padding:80px 0;
+	}
+
+	.span5 {
+		border-left:1px @grayLightest solid;
+
+	}
+
+	h2 {
+		text-transform:lowercase;
+		color:@grayLight;
+		font-size:72px;
+		max-width: 395px;
+		margin:auto;
+		text-align:left;
+		margin-bottom:50px;
+	}
+
+	p {
+		max-width: 395px;
+		margin:auto;
+		text-align:left;
+	}
+}
+
+.welcome-flexible-creation {
+	background:rgb(0,193,255);
+	padding:120px 0;
+	color:@white;
+
+	.span8, .span4 {
+		padding:80px 0;
+	}
+
+	.span4 .icon {
+		font-size:340px;
+	}
+
+	.span8 {
+		border-left:1px @grayLightest solid;
+		p {
+			margin:10px auto 0;
+		}
+	}
+
+
+
+	h2 {
+		text-transform:lowercase;
+		color:@white;
+		font-size:72px;
+		max-width: 550px;
+		margin:auto;
+		text-align:left;
+		margin-bottom:50px;
+	}
+
+	p {
+		max-width: 550px;
+		margin:0 auto 1em;
+		text-align:left;
+	}
+
+}
+
+.welcome-add-game {
+	display:none;
+}
+
+/*
+.welcome-add-game {
+	background:#FCFAF4;
+	padding:125px 0;
+	text-align:left;
+	h2 {
+		font-size:72px;
+		max-width:50%;
+		margin:auto;
+		text-transform:lowercase;
+	}
+
+	p {
+		color:@grayLight;
+		font-size:12px;
+		max-width:40%;
+		margin:20px auto;
+	}
+
+	img {
+		margin:30px;
+	}
+
+}
+
+*/
+
+.welcome-featureset {
+	padding:50px 0;
+	background:@white;
+	text-align:left;
+	color:@grayMid; //rgba(71,71,71,.98);
+
+	h3 {
+		font-size:24px;
+		margin:0;
+		color:rgba(71,71,71,.98);
+		text-align:left;
+
+	}
+
+	.span6 h3 {
+		text-transform:lowercase;
+	}
+
+	p {
+		text-align:left;
+		max-width:405px;
+	}
+
+	.row-fluid {
+		padding:20px 0;
+	}
+}
+
+.page-welcome div.welcome-letsgo {
+	min-height:200px;
+	position:relative;
+	padding:120px 0 60px;
+	.link-lets-go {
+		font-family:SeroPro-ExtraThin;
+		font-size:96px;
+		color:@grayMid;
+		font-weight:bold;
+		text-decoration:none;
+
+		&:hover {
+			color:@ngxBlue;
+		}
+	}
+	.link-lets-go::after {
+		font-size:120px;
+		font-family: EngVetica;
+		content: ">";
+		padding-left: 10px;
+		padding-top: 20px;
+		vertical-align:middle;
+	}
+}
+
+.attr-meta .boxout {
+	background-color: @grayIcon;
+	color: @grayMidLight;
+}
+
+// Account Activity
+// --------------------------------
+
+.component-dashboard-activity {
+	h1 {
+		margin-bottom:.5em;
+	}
+
+	.boxout {
+		font-size:13px;
+	}
+
+}
+
+// Icons
+
+.icon-status {
+	color:@white;
+}
+
+i.icon-message {
+	color:@grayLighter;
+}
+
+
+// Components
+// --------------------
+
+.panel-app .component {
+	border-bottom:1px solid @grayLightest;
+
+	&:last-child {
+		border-bottom:none;
+	}
+
+	&-summary-insights {
+		border-bottom:none;
+	}
+
+	h1, h2 {
+		color:@headingsColor;
+	}
+
+    &.component-help h2 {
+        margin-top:25px;
+        margin-bottom:25px;
+    }
+}
+
+.component-label-box .component-label,
+.component.manage-header-footer-pages .component-label-box .component-label-wrapper .component-label[data-icon]:before {
+	color:@grayLightMid;
+}
+
+.component.manage-header-footer-pages .manage-header-footer-row.hovered {
+	.component-label-title,
+	.component-label-byline,
+	.component-label[data-icon]:before,
+	&[data-icon]:after {
+		color:@ngxBlue;
+	}
+}
+
+
+// Intro Help Components
+// ------------------------------------------
+
+.component-intro-help {
+	margin:50px;
+
+	.x-component.x-component-default & {
+		//margin:0;
+	}
+
+	.component-controls {
+		margin: 10px 0;
+
+		.component-control-btn {
+			margin: 0 10px 0 0;
+			&.align-right {
+				margin: 0 0 0 10px;
+			}
+		}
+	}
+
+	// specific tweaks
+
+	// gaification requires block buttons
+	&.gamification-intro-help {
+		a.component-control-btn {display: block; width : 100px}
+	}
+}
+
+
+// Objects
+// --------------
+
+.object {
+	h3 {
+		color:@headingsColor;
+	}
+
+	h4,
+	.attr-meta,
+	.action-icon::before {
+		font-weight:normal;
+		color:@subheadsColor;
+	}
+}
+
+
+.panel-flowgrid {
+	&.forms, &.themes, &.campaigns{
+		padding-bottom: 100px;
+		min-width : 915px;
+	}
+}
+
+
+// Isotope card grid
+// ----------------------------------
+
+.select-campaign-template, .select-feed-template, .select-campaign-promotion-template {
+
+	.toolbar {
+		min-width: 1170px;
+	}
+	.panel-flowgrid {
+
+		.card {
+			background:transparent url('img/header-pattern.png') center center no-repeat!important;
+			background-size:cover;
+			height : 100%;
+			width : 100%;
+		}
+
+		[class^="icon-"]:before,
+		[class*="icon-"]:before{
+			display:none;
+		}
+
+		.element {
+			height:220px;
+			width:220px;
+			position: relative;
+			float: right;
+			margin: 10px 20px 10px 0;
+			&:hover {
+
+				.item {
+					background: @grayLightMidOp;
+
+				}
+
+				.actions {
+					display:block;
+					padding: 10px 5px;
+					line-height : initial;
+					height : auto;
+
+					a {
+						margin: 0;
+						color: #fff;
+						text-transform: none;
+						font: 20px Klavika;
+						padding: 0;
+						margin: 0;
+
+						.icon {
+							font-size : 20px;
+						}
+					}
+				}
+
+				.caption {
+					i, img {
+						display:none;
+					}
+					h2 {
+						display:block;
+						font-family: Klavika;
+						font-weight : normal;
+						margin-top: 60px;
+					}
+
+					h3 {
+						font-size:14px;
+					}
+				}
+
+			}
+		}
+
+		.caption {
+
+			position:absolute;
+			text-align: center;
+			top:0; bottom:0;
+			left:0; right:0;
+			height:auto;
+			margin:0;
+			background:transparent;
+
+			a:link, a:visited {
+				color:@white;
+			}
+
+			i[class^="icon-"]:before,
+			i[class*="icon-"]:before {
+				font-size:110px;
+				display:block;
+				text-align:center;
+				color:@white!important;
+				margin:20px 0;
+			}
+
+			h2 {
+				display:none;
+				font-size:48px;
+				text-align:center;
+				color:@white;
+				margin-bottom:0;
+				font-weight:normal;
+				.action-link {
+					float:none;
+				}
+			}
+			h3 {
+				color:@white;
+				text-align:center;
+				font-weight:normal;
+				text-transform: none;
+				font: 20px SeroPro-ExtraThin,HelveticaNeue-Light,Helvetica,Arial,sans-serif;
+			}
+			p {
+				display:none;
+			}
+
+			img {
+				padding: 20px 0 40px 0;
+			}
+		}
+		.actions {
+			display:none;
+			position:absolute;
+			bottom:0;
+			left:0; right:0;
+			background:transparent;
+
+			.action-link {
+				color:@white;
+				margin-top:5px;
+				line-height:29px;
+				&:hover {
+					background:transparent;
+				}
+
+			}
+		}
+		.item {
+			background:rgba(255,255,255,0.22);
+			height: 100%;
+			padding: 0;
+			border-radius: 0;
+
+			color:@white;
+
+			&.feed { background: rgba(100,100,100,0.6)}
+
+			&.icon-quiz { background:rgba(250, 221, 90,0.75); }
+			&.icon-coupon { background:rgba(88,43,127,.45); }
+			&.icon-contest { background:rgba(247, 166, 34,.45); }
+			&.icon-game { background:rgba(217,30,125,.55); }
+			&.icon-sweepstake { background:rgba(51,204,254,.60); }
+
+		}
+	}
+}
+
+// Wizards
+// --------------
+
+.wizard .item {
+	background:@panelBGColor;
+	background-color:@panelBGColor;
+
+	.ngx-form-heading-headline {
+		color:@grayMid;
+		padding:20px 0;
+	}
+
+	.ngx-warning {
+		.ngx-form-heading-headline {
+			color:@white;
+		}
+	}
+
+	.x-form-item label.x-form-item-label {
+		color:@grayLight;
+	}
+}
+
+
+// Login
+// ----------
+
+.panel-login {
+	padding: 60px 0 0 0;
+
+	h1 {
+		margin-left:90px;
+		margin-bottom:60px;
+		color:@white;
+	}
+
+	h2 {
+		color:@grayMid;
+		padding-top:60px;
+	}
+}
+
+
+.layout-unauthed {
+	background:url('img/header-pattern.png') left top repeat;
+	background-attachment: fixed;
+}
+
+.panel-login {
+	background-color:rgba(255,255,255,.5);
+}
+
+.x-border-box  .content-login {
+	background:@panelBGColor;
+	color:@grayMid;
+	padding: 0 0 0 90px;
+	margin-left:7px;
+	min-height:545px;
+
+	position:absolute;
+	bottom:0; top:264px;
+	left:0; right:0;
+
+	.x-reset .x-form-item.x-field-default,
+	.x-reset .x-form-item.x-form-fieldcontainer{
+		margin:0;
+	}
+
+	.x-form-cb-label {
+		color:@grayMid;
+	}
+
+
+	.x-reset input[type="text"],
+	.x-reset input[type="password"],
+	.x-form-text {
+		margin:0 0 20px 0;
+		background:transparent;
+		border-color:@grayLight;
+		border-width:0 0 1px 0;
+		color:@grayMid;
+
+
+		&.x-form-focus,  {
+			color:@grayMid;
+			background-color:transparent;
+		}
+	}
+
+	.x-reset .x-toolbar {
+		padding:0;
+	}
+
+	.x-reset .x-btn.ngx-blue-button {
+		background:@grayLight;
+		&:hover {
+			background:lighten(@grayLight,10%);
+		}
+	}
+
+
+	::-webkit-input-placeholder { color:@grayLightMid; font-size:0.7em; text-transform:uppercase;  }
+	::-moz-placeholder { color:@grayLightMid; font-size:0.7em; text-transform:uppercase; } /* firefox 19+ */
+	:-ms-input-placeholder { color:@grayLightMid; font-size:0.7em; text-transform:uppercase; } /* ie */
+	input:-moz-placeholder { color:@grayLightMid; font-size:0.7em; text-transform:uppercase; }
+
+}
+
+
+
+// Previews
+// ----------------
+
+.preview-channel-type a {
+	color:@grayMid;
+}
+
+.preview-pane {
+	background-color:@grayLightest;
+	border-color:@grayLight;
+}
+
+// Dashboard
+// ------------------
+
+#dashboard .contentWrapper {
+	padding:20px 0 0 0;
+}
+
+.panel-dashboard {
+	padding:30px 60px;
+	margin:0;
+	background:@panelBGColor;
+	h1,
+	.action-quick a:link i,
+	.action-quick a:visited i,
+	.action-quick a:link strong,
+	.action-quick a:visited strong {
+		color:@grayMid;
+	}
+	border-color:@grayLightest;
+
+	p {
+		color:@grayByline;
+	}
+
+}
+
+.conversation-actions {
+    .action-quick {
+        border-right: 1px solid @grayLightest;
+
+        &:last-child {
+            border-right: none;
+        }
+    }
+}
+
+.component-dashboard-activity .what-evt {
+	color:@grayByline;
+}
+
+// Campaigns
+// ------------------
+
+.component .statBox h1 {
+	color:@white;
+}
+
+.panel-list .container {
+	display:none;
+}
+
+.panel-list .object-campaign {
+	background:rgb(150,150,150);
+	overflow:hidden;
+}
+
+.panel-list .toolbar .btn-complex {
+	color:@grayMid;
+	margin:0 10px;
+	&:hover {
+		background:@ngxBlue;
+		color:@white;
+	}
+
+}
+
+.campaign-status-draft .image-campaign {
+	background-color:rgba(51,254,204,.66);
+}
+
+.campaign-status-live .image-campaign {
+	background-color:rgba(51,204,254,.66);
+}
+
+.campaign-status-expired .image-campaign {
+	background-color:rgba(254,51,204,.66);
+}
+
+.panel-list .object [class*="span"] {
+	height:160px;
+}
+
+.object.object-campaign {
+	margin: 10px 0;
+}
+
+.panel-list-campaigns .object-campaign:hover {
+
+	background-color:@ngxBlue;
+
+	.image-campaign, .span7, .span2, .span1 {
+		background-color:@ngxBlue;
+		border-color:@ngxBlue;
+		cursor:pointer;
+		.attr-meta {
+			color:@white;
+			border-color:@white;
+		}
+
+	}
+
+	.span1 {
+		cursor:default;
+		.attr-meta  a:link, .attr-meta a:visited, .attr-meta a:hover, .icon {
+			color:@white;
+		}
+	}
+}
+
+
+
+.panel-list-campaigns .object-meta {
+
+	.image-campaign {
+		height:100px;
+
+		.icon.xl {
+			font-size:100px;
+		}
+	}
+
+	.span1 {
+		width        : 71px;
+		margin-left  : 0;
+		padding-left : 35px;
+	}
+
+	.span2 {
+		width:200px;
+		margin-left:0;
+		padding-left:0;
+	}
+
+	.span7 {
+		margin-left:0;
+		padding-left:20px;
+		width:630px;
+
+		.meta-campaign {
+			padding-top:20px;
+		}
+	}
+}
+
+.attr-meta {
+	.campaign-object-status-label {
+		font-family:@labelsFontFamily;
+		background:@grayLight;
+		display:inline-block;
+		margin-right:1em;
+		text-transform:uppercase;
+		padding:.25em .5em;
+	}
+}
+
+.component p,
+.component-details .component-meta,
+.component-hover-box .component-box-byline {
+	color:@grayByline;
+}
+
+.component-hover-box .component-box-title {
+	color:@grayMid;
+}
+
+.campaign-status-live .campaign-object-status-label {
+	background:@conflictColor;
+	color:@white;
+}
+
+.panel-list .campaign-status-live .campaign-object-status {
+	background-color:rgb(235,79,49);
+}
+
+.actions-campaign {
+	list-style:none;
+	margin-top:8px;
+	padding:0;
+	li {
+		margin:15px 10px 0;
+
+		a:link, a:visited {
+			color:@grayDark;
+		}
+
+		a:hover {
+			color:@ngxBlue;
+		}
+
+		&:last-of-type {
+			margin-top:35px;
+		}
+	}
+
+}
+
+.campaign-summary-section h1.campaign-summary-title:before {
+	color:@white;
+}
+
+// status bar
+.panel-app .component-campaignobject-status {
+	background-color: #d8d8d8;
+	border-bottom: 5px solid #fff;
+
+	h1 {
+		color : #fff;
+	}
+
+
+
+	.campaignobject-status {
+		position: relative;
+		&.current {
+			&:after {
+				top: 60px;
+				right: 45px;
+				bottom: auto;
+				left: auto;
+				border-width: 0 15px 15px;
+				border-color: #fff transparent;
+				content: "";
+				position: absolute;
+				border-style: solid;
+				display: block;
+				width: 0;
+			}
+			span {
+				background-color: #fff;
+				position: relative;
+			}
+		}
+
+		.component-title {
+			padding-right : 20px;
+		}
+	}
+	.component-control-btn {
+
+		margin-right: 0;
+		background-color: transparent;
+		color : @ngxBlue;
+		font-size : 32px;
+		padding: 20px;
+
+		&[data-icon]:before {
+			padding-right : 10px;
+		}
+		&:hover {
+			background-color: @ngxBlue;
+			color : #fff;
+		}
+	}
+
+}
+
+
+.component-controls .component-control-btn.btn-dark {
+	color:@grayLight;
+}
+
+.component-controls .component-control-btn.btn-dark:hover {
+	color:@grayDark;
+}
+
+.component.component-campaignobject-next-action{
+	border-bottom:none;
+
+	h1, a:link, a:visited {
+		color:@white;
+	}
+}
+
+.object.pick-display-objects {
+	background-color:@grayLight;
+	color:@white;
+
+	h3, .attr-meta {
+		color:@white;
+	}
+}
+
+
+.object-campaign .icon-campaign {
+	background:@grayDark url('img/header-pattern.png') center center no-repeat;
+	background-size:cover;
+
+	&:before {
+		content:'';
+	}
+}
+
+.panel-list .metric-campaign {
+	padding-top:4em;
+	text-align:center;
+	margin-left:0;
+
+	.campaign-object-timeleft span {
+		display:block;
+		font-size:3em;
+	}
+
+	.metric-key {
+		font-family:@headingsFontFamily;
+		margin:0;
+		font-size:3em;
+	}
+
+	.metric-label {
+		display:block;
+	}
+}
+
+.object-meta .attr-meta {
+	border-color:@grayLighter;
+}
+
+.object-meta .attr-meta.last {
+	border-right:0;
+}
+
+// Status
+// ------------
+
+#campaign-oject-status-header .campaign-object-name {
+	background:transparent;
+	color:@grayMid;
+}
+
+.campaign-object-name .icon {
+	border-right:1px #ccc solid;
+	padding: 10px;
+	margin-right:5px;
+	vertical-align: middle;
+}
+
+
+.component-campaignobject-status .status-wrapper {
+	margin:20px 0;
+	text-align:right;
+}
+
+// TODO: Should this be decided on status (conflict for example)
+/* .campaign-status-expired {
+	background-color:@conflictColor;
+	color:@white;
+
+	&.component h1,
+	&.component p {
+		color:@white;
+	}
+
+	.campaignobject-status {
+		padding:15px 5px;
+		border-color:@white;
+	}
+} */
+
+// Campaign Header Status Indicator
+// ----------------------------------------------------------------
+
+.campaign-object-status{
+	color:@white;
+}
+
+.panel-list .campaignobject-status.current span {
+	background:#fff;
+	color:@grayMid;
+}
+
+// Channels
+// ----------------
+
+.panel-app .component-connect-header {
+	h1, h2 {
+		color:@white;
+	}
+}
+
+// Connect FB Channel
+// ------------------------------------
+
+.header-account-select {
+	.btn {
+		color:@white;
+
+		&:hover {
+			color:@grayDark;
+		}
+	}
+}
+
+.hasScrolled .header-account-select {
+	h1, .btn {
+		color:@grayDark;
+	}
+}
+
+.container-account-select .option-set a {
+	color:@white;
+}
+
+// Switch accounts
+
+.account-list-switch {
+	min-width:800px;
+	color:@grayLighter;
+
+	.selector-row:hover {
+		color:@white;
+	}
+
+
+	h1, h2 {
+		color:@ngxBlue;
+	}
+
+	h1 {
+		font-size:4em;
+	}
+
+	h2 {
+		font-size:2em;
+	}
+}
+
+// Conflicts
+// ------------------
+
+.status-conflict {
+
+	background-color:@conflictColor;
+
+	.component {
+		border-bottom:0;
+	}
+
+	h3, .attr-meta {
+		color:@white;
+	}
+
+	&-message {
+		border-color:@white;
+
+		.component-status-tab p {
+			color:@white;
+		}
+	}
+
+	.boxout {
+		color:@grayDark;
+	}
+
+	.action-icon::before {
+		color:@white;
+	}
+
+}
+
+.component-list-channels .action-quick a{
+	&:link i,
+	&:visited i,
+	&:link strong,
+	&:visited strong {
+		color:@grayLightest;
+	}
+
+	&:hover strong {
+		color:@ngxBlue
+	}
+}
+
+
+.threadMessage .threadCommentBox,
+.threadMessage .threadThumbnailBox {
+	background:@grayLightest;
+	color:@grayMid;
+}
+
+.thread .threadCommentTick i {
+	border-left-color:@grayLightest;
+}
+
+.thread.odd .threadUserProfile .threadUserAvatar span,
+.threadUserProfile .threadUserAvatar span {
+	background:none;
+}
+
+.post-content .quote {
+	color:@grayLighter;
+	display: block;
+
+}
+
+
+/* Metrics */
+
+.metrics-small .metric {
+	vertical-align:middle;
+	h2 {
+		font-size:12px!important;
+	}
+}
+
+// Experimental - Move the close button into the corner so can never overlap buttons
+
+.overlay-full .close, .close-preview {
+	margin:0;
+}
+
+
+// Theme Editor
+// ------------------------
+
+.layout-complex-fullscreen {
+  .CodeMirror {
+	height:95%;
+  }
+}
+
+
+// Conversations
+// ------------
+
+.header-summary-conversations {
+	background: rgb(64, 64, 64) url('img/header-pattern.png') center top no-repeat;
+	color:@white;
+
+	h1 {
+		font-weight:bold;
+		color:@white;
+		font-family:@labelsFontFamily;
+		text-transform:uppercase;
+		font-size:18px;
+		margin-top:40px;
+	}
+
+	h2 {
+		font-weight:normal;
+		color:@white;
+		font-size:96px;
+		margin:10px 0;
+	}
+}
+
+.conversations {
+
+	.media-heading {
+		font-family:@sansFontFamily;
+		font-size:24px;
+		font-weight:normal;
+		color:@grayLightMid;
+	}
+
+	.component {
+		h2, h3 {
+			color:@grayLightMid;
+		}
+	}
+
+	.insights-horizontal-header {
+		margin-bottom:20px;
+
+		h1, p {
+			padding:20px;
+		}
+	}
+
+	.panel-app .networkChooser {
+		h2 {
+			color:@ngxBlue;
+		}
+	}
+}
+
+.conversation-actions {
+
+	.action-quick {
+
+		p {
+			font-size:14px;
+			font-family:@sansFontFamily;
+		}
+
+		a:link, a:visited {
+			i[data-icon] {
+				float: none;
+				font-size:64px;
+				color:@grayLight;
+			}
+		}
+		a:hover {
+			i[data-icon],p,strong{
+				color:@ngxBlue;
+			}
+		}
+	}
+}

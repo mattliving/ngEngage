@@ -1,0 +1,58 @@
+<header>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 header-left">
+        <div ng-switch on='post.type'>
+          <h2 ng-switch-when='facebook' data-icon class='icon-facebook'>Edit Post</h2>
+          <h2 ng-switch-when='twitter' data-icon class='icon-twitter'>Edit Post</h2>
+          <h2 ng-switch-when='googleplus' data-icon class='icon-googleplus'>Edit Post</h2>
+        </div>
+      </div>
+      <div class="col-md-4 header-right">
+        <h5 data-icon class='pull-right icon-publish'>Publish Now</h5>
+        <div class="divider pull-right"></div>
+        <h5 data-icon class='pull-right icon-approve'>Save Draft</h5>
+        <h5 data-icon class='pull-right icon-cancel'>Cancel</h5>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="edit-post">
+  <aside class="col-md-8 control-section" ng-switch on="currentView">
+    <ul class="list-group" ng-switch-when="listView">
+      <li class='list-group-item'>
+        <content-input content='post.content'></content-input>
+      </li>
+      <li class='list-group-item'>
+        <div class="row">
+          <div class="col-md-10">
+            <h5>DESTINATIONS</h5>
+            <ul class='list-inline'>
+              <li ng-if="destination.selected" ng-repeat='destination in post.destinations'>
+                <div class="media">
+                  <div class="media-body">
+                    <div class="media-heading">{{destination.title}}</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <h2 ng-click="setView('destinationsView')" data-icon class="icon-channel"></h2>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div ng-switch-when='destinationsView'>
+      <stage heading='choose destination' display='rectangles' items='post.destinations' next='done(item)' close="setView('listView')">
+      </stage>
+    </div>
+  </aside>
+  <section class="col-md-4 preview-section">
+    <div class="container-fluid">
+      <!-- Could do multiple previews for each channel here -->
+      <post-preview post='post'></post-preview>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,23 @@
+.transition-ease (@time: 250ms) {
+  -webkit-transition: @time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: @time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: @time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: @time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: @time cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+}
+
+.transition-ease-in (@time: 400ms) {
+  -webkit-transition: @time cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+  -moz-transition: @time cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+  -ms-transition: @time cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+  -o-transition: @time cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+  transition: @time cubic-bezier(0.420, 0.000, 1.000, 1.000) all;
+}
+
+.box-shadow (@x: 10px, @y: 10px, @blur: 10px, @spread: -5px, @colour: black, @inset...) {
+  -webkit-box-shadow: @x @y @blur @spread @colour @inset;
+  -moz-box-shadow:    @x @y @blur @spread @colour @inset;
+  -ms-box-shadow:     @x @y @blur @spread @colour @inset;
+  -o-box-shadow:      @x @y @blur @spread @colour @inset;
+  box-shadow:         @x @y @blur @spread @colour @inset;
+}

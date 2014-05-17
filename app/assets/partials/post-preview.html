@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="media">
+      <a class="pull-left" href='#'>
+        <img class="media-object" height='64px' width='64px' ng-src='{{post.destinations[0].icon}}'>
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">{{post.content.companyName}}</h4>
+        Posted by {{post.content.postedBy}} - {{post.content.postedDate}}
+      </div>
+    </div>
+    <p>{{post.content.title}}</p>
+    <img width='100%' height='100%' ng-src='{{post.content.imageUrl}}'>
+  </div>
+</div>

@@ -1,0 +1,399 @@
+// Variables.less
+// Variables to customize the look and feel of Bootstrap
+// -----------------------------------------------------
+
+@import "icons.less";
+
+// Fonts
+@font-face {
+	font-family: 'Klavika';
+	src: url('../font/KlavikaWebBasic/KlavikaWebBasicLight.eot');
+	src: url('../font/KlavikaWebBasic/KlavikaWebBasicLight.eot?#iefix') format('embedded-opentype'),
+	url('../font/KlavikaWebBasic/KlavikaWebBasicLight.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SeroPro-ExtraThin';
+	src: url('../font/SeroWebPro/SeroWebPro-Extrathin.eot');
+	src: url('../font/SeroWebPro/SeroWebPro-Extrathin.eot?#iefix') format('embedded-opentype'),
+	url('../font/SeroWebPro/SeroWebPro-Extrathin.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SeroPro-ExtraLight';
+	src: url('../font/SeroWebPro/SeroWebPro-Extralight.eot');
+	src: url('../font/SeroWebPro/SeroWebPro-Extralight.eot?#iefix') format('embedded-opentype'),
+	url('../font/SeroWebPro/SeroWebPro-Extralight.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+// GLOBAL VALUES
+// --------------------------------------------------
+
+
+// Grays
+// -------------------------
+@black:                 #111;	// we never use pure black
+@grayDarker:            #242424;
+@grayDark:              #313131;
+@grayDarkish:           #3e3e3e;
+
+@gray:                  #555;
+@grayMid:               #666;
+@grayMidLight:          #616161;
+@grayMidLighter:        #828282;
+@grayLight:             #989898;
+@grayByline:			#bbb;
+@grayLighter:           #eee;
+@grayCloseToWhite:      #FEFEFE;
+@white:                 #fff;
+@grayIcon:				#ccc;
+
+
+// Accent colors
+// -------------------------
+@blue:                  #049cdb;
+@blueDark:              #0064cd;
+@green:                 #46a546;
+@red:                   #9d261d;
+@yellow:                #ffc40d;
+@orange:                #f89406;
+@pink:                  #c3325f;
+@purple:                #7a43b6;
+@wine:					#b6001b;
+
+
+@ngxDarkBlue:		    #38d4fd;
+@ngxBlue:				#32ccfe;
+@ngxLightBlue:			#76d6fd;
+@ngxPink:				#cf2e76;
+@ngxYellow:				#cfb507;
+@ngxPurple:				#7e4c7d;
+@ngxGrey:               #828282;
+@ngxGreen:              #70d030;
+@ngxFern:				#8cae52;
+@ngxSalmon:             #ee6949;
+@ngxBlueDark:           #0583a1;
+@ngxKhaki: 				#e0c649;
+
+// Message Colours
+// ------------------------------
+
+@msgOpacity:        0.85;
+@msgColourNotice:   hsla(hue(@ngxBlue),saturation(@ngxBlue),lightness(@ngxBlue),@msgOpacity);
+@msgColourWarn:     hsla(hue(@orange),saturation(@orange),lightness(@orange),@msgOpacity);
+@msgColourError:    hsla(hue(@red),saturation(@red),lightness(@red),@msgOpacity);
+@msgColourSuccess:  hsla(hue(@ngxFern),saturation(@ngxFern),lightness(@ngxFern),@msgOpacity);
+@msgColourLoading:  hsla(hue(@grayDark),saturation(@grayDark),lightness(@grayDark),@msgOpacity);
+
+// hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+
+// Scaffolding
+// -------------------------
+@bodyBackground:        #212121;
+@textColor:             @grayDark;
+
+// Padding Sizes
+// -------------------------
+
+@tinyPad:				12px;
+@internalPad:			20px;
+@smallPad:				30px;
+@mediumPad:				60px;
+@largePad:				90px;
+
+// Typography
+// -------------------------
+
+@sansFontFamily:        "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+@monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
+@iconFontFamily:			EngVetica;
+@labelsFontFamily:		Klavika, @sansFontFamily;
+@fbFontFamily:          "lucida grande", tahoma, verdana, arial, sans-serif;
+@tipsFontFamily:    	SeroPro-ExtraLight,"HelveticaNeue-Light", Helvetica, Arial, sans-serif; // empty to use BS default, @baseFontFamily
+
+@baseFontFamily:				@sansFontFamily;
+@altFontFamily:         @serifFontFamily;
+
+@superSizeTitle:		   114px;
+@largeTitleFontSize:		96px;
+@titleFontSize: 			72px;
+@sectionSubTitleFontSize:	64px;
+@subtitleFontSize:			36px;
+@iconFontSize:				24px;
+@navbarFontSize: 			17px;
+@baseLineHeight:    		18px;
+@baseFontSize: 				14px;
+
+
+
+@headingsFontFamily:    SeroPro-ExtraThin, "HelveticaNeue-Light", Helvetica, Arial, sans-serif; // empty to use BS default, @baseFontFamily
+@headingsFontWeight:    bold;    // instead of browser default, bold
+@headingsColor:         inherit; // empty to use BS default, @textColor
+
+
+
+// Font Colours
+// ------------------------
+
+@textColor:			#fff;
+@headingsColor:		#33ccfe;
+
+@linkColor:			#fff;
+@linkColorHover:	#33ccfe;
+@linkVisitedColor:	#fff;
+@linkActiveColor:	#33ccfe;
+
+
+// Tables
+// -------------------------
+@tableBackground:                   transparent; // overall background-color
+@tableBackgroundAccent:             #f9f9f9; // for striping
+@tableBackgroundHover:              #f5f5f5; // for hover
+@tableBorder:                       #ddd; // table and cell border
+
+
+
+
+// Buttons
+// -------------------------
+@btnBackground:                     @white;
+@btnBackgroundHighlight:            darken(@white, 10%);
+@btnBorder:                         #ccc;
+
+@btnPrimaryBackground:              @linkColor;
+@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+
+@btnInfoBackground:                 #5bc0de;
+@btnInfoBackgroundHighlight:        #2f96b4;
+
+@btnSuccessBackground:              #62c462;
+@btnSuccessBackgroundHighlight:     #51a351;
+
+@btnWarningBackground:              lighten(@orange, 15%);
+@btnWarningBackgroundHighlight:     @orange;
+
+@btnDangerBackground:               #ee5f5b;
+@btnDangerBackgroundHighlight:      #bd362f;
+
+@btnInverseBackground:              @gray;
+@btnInverseBackgroundHighlight:     @grayDarker;
+
+
+// Pagination
+// --------------------
+@baseBorderRadius:                  4px;
+@borderRadiusLarge:                 6px;
+@borderRadiusSmall:                 2px;
+@paginationBackground:              @black;
+@paginationActiveBackground:        lighten(@paginationBackground,15%);
+@paginationBorder:                  lighten(@paginationBackground,15%);
+@paddingLarge:                      8px;
+@paddingSmall:                      4px;
+@paddingMini:                       2px;
+@fontSizeLarge:                     14px;
+@fontSizeSmall:                     10px;
+@fontSizeMini:                      8px;
+
+
+// Forms
+// -------------------------
+@inputBackground:               @white;
+@inputBorder:                   #ccc;
+@inputBorderRadius:             3px;
+@inputDisabledBackground:       @grayLighter;
+@formActionsBackground:         #f5f5f5;
+
+// Dropdowns
+// -------------------------
+@dropdownBackground:            @black;
+@dropdownBorder:                rgba(0,0,0,.2);
+@dropdownLinkColor:             @grayDark;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkBackgroundHover:   @linkColor;
+@dropdownDividerTop:            #e5e5e5;
+@dropdownDividerBottom:         @white;
+@dropdownLinkBackgroundActive:	@white;
+
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+@zindexPageDesignerRow:   1000;
+@zindexPopover:           1010;
+@zindexTooltip:           1020;
+@zindexFixedNavbar:       1050;
+@zindexModalBackdrop:     1040;
+@zindexDropdown:          1050;
+@zindexModal:             1050;
+
+
+// Sprite icons path
+// -------------------------
+@iconSpritePath:          "../img/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+
+
+// Input placeholder text color
+// -------------------------
+@placeholderText:         @grayLight;
+
+
+// Hr border color
+// -------------------------
+@hrBorder:                @grayLighter;
+
+
+// Page Structure
+@pageWrapperWidth:				  1230px;
+
+// Navbar
+// -------------------------
+@navbarHeight:                    83px;
+@navbarBackground:                @grayDarker;
+@navbarBackgroundHighlight:       @grayDark;
+
+@navbarText:                      @grayLight;
+@navbarLinkColor:                 @grayLight;
+@navbarLinkColorHover:            @white;
+@navbarLinkColorActive:           @navbarLinkColorHover;
+@navbarLinkBackgroundHover:       transparent;
+@navbarLinkBackgroundActive:      @navbarBackground;
+
+@navbarSearchBackground:          lighten(@navbarBackground, 25%);
+@navbarSearchBackgroundFocus:     @white;
+@navbarSearchBorder:              darken(@navbarSearchBackground, 30%);
+@navbarSearchPlaceholderColor:    #ccc;
+@navbarBrandColor:                @navbarLinkColor;
+
+
+// Hero unit
+// -------------------------
+@heroUnitBackground:              @grayLighter;
+@heroUnitHeadingColor:            inherit;
+@heroUnitLeadColor:               inherit;
+
+
+// Form states and alerts
+// -------------------------
+@warningText:             #c09853;
+@warningBackground:       #fcf8e3;
+@warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+@errorText:               #b94a48;
+@errorBackground:         #f2dede;
+@errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+@successText:             #468847;
+@successBackground:       #dff0d8;
+@successBorder:           darken(spin(@successBackground, -10), 5%);
+
+@infoText:                #3a87ad;
+@infoBackground:          #d9edf7;
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+
+// Tooltips and popovers
+// -------------------------
+@tooltipColor:            #fff;
+@tooltipBackground:       #000;
+@tooltipArrowWidth:       5px;
+@tooltipArrowColor:       @tooltipBackground;
+
+@popoverBackground:       #fff;
+@popoverArrowWidth:       10px;
+@popoverArrowColor:       #fff;
+@popoverTitleBackground:  darken(@popoverBackground, 3%);
+
+// Special enhancement for popovers
+@popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+@popoverArrowOuterColor:  rgba(0,0,0,.25);
+
+
+
+
+// GRID
+// --------------------------------------------------
+
+// Default 1280px grid
+// -------------------------
+@gridColumns:             12;
+@gridColumnWidth:         70px;
+@gridGutterWidth:         30px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// Fluid grid
+// -------------------------
+@fluidGridColumnWidth:    6.382978723%;
+@fluidGridGutterWidth:    2.127659574%;
+
+
+
+// new variables - moved from ext files
+
+// vars and defaults
+@iconSize : 24px;
+@largeIconSize : 36px;
+@xxlargeIconSize : 96px;
+@smallIconSize : 20px;
+@buttonFont : normal 18px Klavika, "Helvetica Neue Light", "HelveticaNeue-Light", Arial, Helvetica, sans-serif;
+@smallButtonFont : normal 16px Klavika, "Helvetica Neue Light", "HelveticaNeue-Light", Arial, Helvetica, sans-serif;
+@verySmallButtonFont : normal 14px Klavika, "Helvetica Neue Light", "HelveticaNeue-Light", Arial, Helvetica, sans-serif;
+@datePickerFont : normal 20px HelveticaNeue-Light, Helvetica, Arial, sans-serif;
+@bylineFont : normal 12px "Helvetica Neue Light", "HelveticaNeue-Light", Arial, Helvetica, sans-serif;
+@hoverControlButtonFont : bold 14px Klavika, "Helvetica Neue Light", "HelveticaNeue-Light", Arial, Helvetica, sans-serif;
+
+@greyButtonColor : #666;
+@ngxGreyLines : #828282;
+
+@buttonOver : darken(@ngxBlue, 25%);
+@greenButtonOver : darken(@ngxGreen, 25%);
+@orangeButtonOver : darken(@orange, 15%);
+
+@maskBG : rgba(100,100,100,0.9);
+@lightMaskBG : rgba(150, 150, 150, 0.7);
+@pdMaskBG : rgba(71, 71, 71, 0.94);
+
+@maskPosition : 70% 25%;
+
+@maskFrom : rgba(90, 90, 90, 0.5);
+@maskTo : rgba(0, 0, 0, 0.5);
+
+@lightMaskFrom : rgba(200, 200, 200, 0.5);
+@lightMaskTo : rgba(150, 150, 150, 0.5);
+
+@ligherMaskPosition : 50% 30%;
+@lighterMaskFrom : rgba(150, 150, 150, 0.5);
+@lighterMaskTo : rgba(71, 71, 71, 0.5);
+
+.standardTransition {
+	-webkit-transition : color 0.2s ease, border 0.2s ease, background 0.2s ease;
+	-moz-transition    : color 0.2s ease, border 0.2s ease, background 0.2s ease;
+	-ms-transition     : color 0.2s ease, border 0.2s ease, background 0.2s ease;
+	-o-transition      : color 0.2s ease, border 0.2s ease, background 0.2s ease;
+	transition         : color 0.2s ease, border 0.2s ease, background 0.2s ease;
+}
+
+.engveticaDefaults {
+	font-family            : 'engvetica';
+	font-style             : normal;
+	speak                  : none;
+	font-weight            : normal;
+	font-size              : 16px;
+	-webkit-font-smoothing : antialiased;
+	color                  : #666;
+	line-height            : @iconSize;
+	vertical-align         : middle;
+	.standardTransition;
+}

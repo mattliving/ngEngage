@@ -1,1 +1,117 @@
-<div></div>
+<div class='new-post' ng-switch on='currentStage'>
+  <div class='container-fluid' ng-switch-when='type'>
+    <div class="row">
+      <stage heading='choose type' display='circles' items='currentStage' next='next(item)' close='back()'>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <span data-icon class="icon-pacman"></span>
+            <a ng-click='next()'>Guide me</a>
+          </div>
+        </div>
+      </stage>
+    </div>
+  </div>
+  <div class='container-fluid' ng-switch-when='template'>
+    <stage heading='choose template' display='circles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='destinations'>
+    <stage heading='choose destination' display='rectangles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='content'>
+    <stage heading='enter content' display='content' post='post' close='back()'>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <a ng-click='next()'>Next</a>
+        </div>
+      </div>
+    </stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='timing'>
+    <stage heading='when do you want to post?' display='circles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='schedule'>
+    <stage heading='set schedule' display='circles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='tag'>
+    <stage heading='tag your post' display='circles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='target'>
+    <stage heading='target your post?' display='circles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='targetGender'>
+    <stage heading='target by gender' display='circles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='targetRelationship'>
+    <stage heading='target by relationship' display='circles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='targetInterestedIn'>
+    <stage heading='target by interested in' display='circles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='targetEducation'>
+    <stage heading='target by education' display='circles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='targetLanguage'>
+    <stage heading='target by language' display='circles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid' ng-switch-when='targetLocation'>
+    <stage heading='target by location' display='circles' items='currentStage' next='next(item)' close='back()'></stage>
+  </div>
+  <div class='container-fluid preflightCheck' ng-switch-when='preflightCheck'>
+    <stage heading='pre-flight check' items='currentStage' close='back()'>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="previewLeft col-md-4">
+          <div class="row">
+            <h4>{{post.type}}</h4>
+          </div>
+          <div class="row">
+            <h5>TYPE</h5>
+            <h5>{{post.content.type}}</h5>
+          </div>
+          <div class="row">
+            <h5>PUBLISH TO</h5>
+            <h5>{{post.destinations.title}}</h5>
+          </div>
+          <div class="row" ng-if='post.tags.length'>
+            <h5>TAGS</h5>
+            <h5>{{post.content.type}}</h5>
+          </div>
+          <div class="row">
+            <ul class="list-inline">
+              <li data-icon class='icon-close' ng-if='post.target'>Targeted</li>
+              <li data-icon class='icon-approve' ng-if='post.paidMediaPost'>Paid Media Post</li>
+            </ul>
+          </div>
+          <div class="row">
+            <h5>PUBLISH ON</h5>
+            <h5>{{post.timing.scheduled}}</h5>
+          </div>
+        </div>
+        <div class="previewRight col-md-4">
+          <post-preview post='post'></post-preview>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 pull-center">
+          <ul class="list-inline">
+            <li ng-click='back()'>
+              <h2 data-icon class='icon-cancel'></h2>
+              <h2 class='text-center'>cancel</h2>
+            </li>
+            <li ng-click='save()'>
+              <h2 data-icon class='icon-approve'></h2>
+              <h2 class='text-center'>save</h2>
+            </li>
+            <li ng-click='publish()'>
+              <h2 data-icon class='icon-publish'></h2>
+              <h2 class='text-center'>publish</h2>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </stage>
+  </div>
+</div>
