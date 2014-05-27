@@ -1,189 +1,45 @@
-# angular-brunch-seed-javascript
-### A starter project for AngularJS using Brunch.io
-
-[AngularJS](http://angularjs.org) + [Brunch](http://brunch.io)
+# ngEngage
+### An Angular prototype of the conversations feature
 
 Features:
-* Javascript / Jade ready / Less / SASS / SCSS / Stylus automatically compiled on save
-* auto-reload during development saves you from manually refreshing the page
-* Javascript / CSS minification for production
-* [testacular](https://github.com/vojtajina/testacular) integration for
-  unit tests
-* Bootstrap integration with themes.
+* Single page Angular app with hash-based url routing
+* Create a new post
+* Edit an existing post
+* View a list of posts
 
-## Alternate Versions
+## How to install and run the app
 
-- [Coffeescript] (https://github.com/scotch/angular-brunch-seed) by [@scotch](https://github.com/scotch) - Uses [Coffeescript](http://coffeescript.org/) instead of Javascript and [Jade](http://jade-lang.com/) instead of HTML
-- [Livescript](https://github.com/clkao/angular-brunch-seed-livescript) by [@clkao](https://github.com/clkao) - Uses [Livescript](http://livescript.net/) instead of [Coffeescript](http://coffeescript.org/)
-- [True North](https://github.com/scoarescoare/angular-brunch-true-north) by [@scoarescoare](https://github.com/scoarescoare) - Uses [SASS](http://sass-lang.com/) instead of [LESS](http://lesscss.org/)
-- [Bower Support](https://github.com/GulinSS/angular-brunch-seed) by [@GulinSS](https://github.com/GulinSS) - Uses [Bower](https://github.com/twitter/bower) for package management
+* run `git clone git@github.com:mattliving/ngEngage.git`
+* make sure you have npm installed and run `npm install`
+* run `bower install`
+* run `brunch watch -s` to compile files and run the app
 
-## How to use angular-brunch-seed
+## App structure
 
-* `git clone https://github.com/Nss/angular-brunch-seed-javascript.git` to clone the **angular-brunch-seed-javascript** repository
-* `cd angular-brunch-seed-javascript`
-* `./scripts/init.sh` to install node packages
+The entry point to the app is `app/scripts/app.js`. Here you will see a list of modules
+that the app depends on, as well as configuration for the routes in the app. Each route
+has an options object, that describes whether it will redirect or instantiate a controller
+with a designated template. This app will begin by instantiating the "ConversationsCtrl", 
+found in `app/scripts/controllers/conversations.js`.
 
-or if you have **Brunch** installed run:
+### Conversations Controller
 
-`brunch new myapp --skeleton https://github.com/Nss/angular-brunch-seed-javascript`
+This controller is extremely simple. It requires in a few modules using Angular's dependancy 
+injection system and performs an HTTP request for a static json file and saves this data
+onto the scope object. The scope is the glue that binds the data model to the templates in 
+AngularJS.
+
+### New Post Controller
+
+The new post controller is responsible for the post creation flow. I have implemented it as a
+series of "stages" (views) defined in an array on the scope object, called `$scope.stages`. In the `new-post.html`
+file, each stage is represented by a `stage` directive, which are swapped between using the `ng-switch` 
+command with the value stored in the `$scope.currentStage` variable. "Directives" in Angular are 
+the mechanism for extending HTML with your own behaviour - they are its building blocks. 
+
+The `stage` directive has its own `isolated scope`, but here it communicates with its parent scope 
+by calling the "nextFunc" function, which will in turn execute the "next" function in the context of 
+the parent scope, passing with it an object containing the clicked on item. This enables the `NewPostCtrl` 
+to maintain the state of the current stage.
 
 
-### Using html
-
-By default angular-brunch-seed-javascript uses html templates. If you would translate your jade file to HTML run the command:
-
-```
-./scripts/compile-html.sh
-```
-All Jade file will be compiled to HTML and be placed in the `app/assets` directory. Addtionally, the `*.jade` files will be removed from the project. Any changes that you make to the `app/assets/**/*.html` files will now appear in the browser.
-
-
-### Using Jade
-
-You could put the jade files in the `app` and `app/partials` directories. Upon save the Jade files will be compiled to HTML and placed in the `app/assets` folder. Do not modify the files in the `app/assets` folder as they will be overriden with subsequent changes to their `*.jade` counter part.
-
-
-### Running the app during development
-
-* `./scripts/server.sh` to serve using **Brunch**
-
-Then navigate your browser to [http://localhost:3333](http://localhost:3333)
-
-NOTE: Occasionally the scripts will not load properly on the initial
-load. If this occurs, refresh the page. Subsequent refresh will render
-correctly.
-
-### Running the app in production
-
-* `./scripts/production.sh` to minify javascript and css files.
-
-Please be aware of the caveats regarding Angular JS and minification, take a look at [Dependency Injection](http://docs.angularjs.org/guide/di) for information.
-
-### Running unit tests
-
-* `./scripts/test.sh` to run unit tests with [testacular](https://github.com/vojtajina/testacular)
-* Open the browser you would like to test to [http://localhost:3334](http://localhost:3334)
-
-Notes:
-
-- Testacular will run tests on save. To insure that changes are
-saved be sure to have `./script/server.sh` or `./script/development.sh` running in the console.
-- If you are on OS X you set the browsers that you would like to target
-  in the `/test/testacular_conf.js` file E.g. `browser = ["ChromeCanary", "Firefox"]`
-
-### End to end testing
-
-* run the app in development mode as described above using a separate terminal
-* `./scripts/test-e2e.sh` to run e2e tests with [testacular](https://github.com/vojtajina/testacular) using angular's scenario runner
-
-### Common issues
-
-Initial load does not render correctly; scripts are not loading. 
-- Occasionally the scripts will not load properly on the initial 
-  load. If this occurs, refresh the page. Subsequent refresh will render
-  correctly.
-
-`EMFILE` error
-- EMFILE means there are too many open files. Brunch watches all your project files and it's usually a pretty big number. You can fix this error with setting max opened file count to bigger number with command ulimit -n <number> (10000 should be enough).
-
-The compelete [Brunch FAQ](https://github.com/brunch/brunch/blob/master/docs/faq.rst)
-### Receiving updates from upstream
-
-When we upgrade angular-seed's repo with newer angular or testing library code, you can just
-fetch the changes and merge them into your project with git.
-
-`git pull origin master`
-
-## Directory Layout
-
-    _public/                  --> Contains generated file for servering the app
-                                  These files should not be edited directly
-    app/                      --> all of the files to be used in production
-
-      assets                  --> a place for static assets. These files will be copied to
-                                  the public directory un-modified.
-        font/                 --> [fontawesome](http://fortawesome.github.com/Font-Awesome/) rendering icons
-          fontawesome-webfont.*
-        img/                  --> image files
-        partials/             --> angular view partials (partial HTML templates)
-          nav.html                If you are using HTML you may modify these files directly.
-          partial1.html           If you are using Jade these file will be update from their *.jade counterpart
-          partial2.html
-        index.html            --> app layout file (the main html template file of the app).
-
-      scripts/                --> base directory for app scripts
-        controllers.js        --> application controllers
-        directives.js         --> custom angular directives
-        filters.js            --> custom angular filters
-        services.js           --> custom angular services
-
-      styles/                 --> all custom styles. Acceptable files types inculde:
-                                  less, sass, scss and stylus
-        themes/               --> a place for custom themes
-          custom/             --> starter theme **NOTE the underscore (_). Files begining with an
-                                  underscore will not automatically be compiled, they must be imported.
-            _override.less    --> styles that should beloaded after bootstrap.
-            _variables.less   --> bootstrap variables to be used during the compilation process
-        app.less              --> a file for importing styles.
-      app.js                  --> application definition and routes.
-
-    node_modules              --> NodeJS modules
-
-    scripts/                  --> handy shell scripts
-      compile-html.sh         --> compiles *.jade file to *.html file and places them in app/assets
-      compile-tests.sh        --> compiles coffeescript test to javascript
-      development.sh          --> compiles files and watches for changes
-      init.sh                 --> installs node modules
-      production.sh           --> compiles and compresses files for production use
-      server.sh               --> runs a development server at `http://localhost:3333`
-      test.sh                 --> runs all unit tests
-
-    test/                     --> test source files and libraries
-      e2e/
-        app/                   
-          scenarios.js        --> end-to-end specs
-      unit/
-        controllers.spec.js   --> specs for controllers
-        directives.spec.js    --> specs for directives
-        filters.spec.js       --> specs for filters
-        services.spec.js      --> specs for services
-      vendor/
-        angular/              --> angular testing libraries
-          angular-mocks.js    --> mocks that replace certain angular services in tests
-
-    vendor/
-      scripts/                --> angular and 3rd party javascript libraries
-        angular/                  files are compiled to `vendor.js`
-          angular.js          --> the latest angular js
-          angular-*.js        --> angular add-on modules
-          version.txt         --> version number
-        bootstrap/            --> for responsive layout
-          bootstrap-collapse.js
-        console-helper.js     --> makes it safe to do `console.log()` always
-        jquery-1.8.3.js       --> for use with bootstrap-collapse
-      styles/                 --> sapling / sapling themes and 3 party CSS
-        bootstrap/            --> boostrap files - **NOTE** the underscore prevents the
-          _*.less                 files from automatically being added to application.css
-        sapling               --> extends boostrap
-          _*.less
-        themes                --> themes to extend Bootstrap
-          default             --> the default bootstrap theme
-            _overrides.less
-            _variables.less
-          sapling             --> supplemental theme
-            _overrides.less
-            _variables.less
-    generators/
-      controller/
-        generator.json        --> controller generator parameters
-        template.js.hbs       --> controller template
-      service/
-        generator.json        --> service generator parameters
-        service.js.hbs        --> service template
-
-## Contributers
-
-[Complete list of code contributers](https://github.com/Nss/angular-brunch-seed-javascript/graphs/contributors)
-
-For more information on angular please check out <http://angularjs.org>
